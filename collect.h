@@ -8,6 +8,7 @@
 #define DEVICE_CPU  0
 #define DEVICE_DISK 1
 #define DEVICE_MEM  2
+#define DEVICE_NET  3
 
 struct status_cpu {
     char name[NAME_LEN];
@@ -65,4 +66,25 @@ struct status_mem {
     unsigned long long swap_total;
     unsigned long long swap_free;
 };
+
+struct status_net {
+    char name[NAME_LEN];
+    unsigned long long rc_kB;
+    unsigned long long rc_pkt;
+    unsigned long long rc_err;
+    unsigned long long rc_drp;
+    unsigned long long rc_fifo;
+    unsigned long long rc_frame;
+    unsigned long long rc_cmprs;
+    unsigned long long rc_multi;
+    unsigned long long sd_kB;
+    unsigned long long sd_pkt;
+    unsigned long long sd_err;
+    unsigned long long sd_drp;
+    unsigned long long sd_fifo;
+    unsigned long long sd_coll;
+    unsigned long long sd_carrier;
+    unsigned long long sd_cmprs;
+};
+
 #endif /* _COLLECT_H */
