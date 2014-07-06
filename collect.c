@@ -167,12 +167,6 @@ int disk(void)
             continue;
        strncpy(diskio.name, (pdev[0] + k)->name, NAME_LEN);
 
-#ifdef DEBUG
-       printf("pdev[0]: %llu %llu\n", (pdev[0] + k)->rd_ios, (pdev[0] + k)->wr_ios);
-       printf("pdev[1]: %llu %llu\n", (pdev[1] + k)->rd_ios, (pdev[1] + k)->wr_ios);
-#endif
-
-
        diskio.rd_kB_ps = ((pdev[1] + k)->rd_ios - (pdev[0] + k)->rd_ios) >> 1;
        diskio.wr_kB_ps = ((pdev[1] + k)->wr_ios - (pdev[0] + k)->wr_ios) >> 1;
        
@@ -330,7 +324,11 @@ int net(void)
 
 int main(){
     cpu();
+    printf("----------------\n");
     disk();
+    printf("----------------\n");
     memory();
+    printf("----------------\n");
     net();
+    printf("----------------\n");
 }
