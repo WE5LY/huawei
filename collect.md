@@ -1,0 +1,4 @@
+# collect.c TODO
+
+1. diskio这里我想获取到read和write的速度，单位是kb/s，但是好像我读取的那个文件没有办法计算这个，它的rd_ios和wr_ios是读写的次数，不是大小，这里你参考一下sysstat或者collectd里面的获取方法吧
+2. diskio和netio我这里有个1秒的延迟你应该注意到了，这里我注意到别的软件没有这样的延迟，你看看别的软件是如何操作的,看sysstat的源码应该就好了
